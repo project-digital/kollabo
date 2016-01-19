@@ -17,8 +17,7 @@ before_install:
   && printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh && cd $TRAVIS_BUILD_DIR;
   fi
 - gcloud components update
-- openssl aes-256-cbc -K $encrypted_499dfc5dccdc_key -iv $encrypted_499dfc5dccdc_iv
-  -in client-secret.json.enc -out client-secret.json -d
+- openssl aes-256-cbc -K $encrypted_167106de8c80_key -iv $encrypted_167106de8c80_iv -in client-secret.json.enc -out client-secret.json -d
 - pwd
 - ls
 - gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
