@@ -7,8 +7,9 @@ cache:
   - "$HOME/gcloud/"
 env:
 # Make sure gcloud command is on our PATH and the App Engine SDK is in the Python path
-  globals:
-    - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
+  - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
+  - PYTHONPATH=${HOME}/gcloud/google-cloud-sdk/platform/google_appengine
+  - GOOGLE_APPLICATION_CREDENTIALS=$TRAVIS_BUILD_DIR/credentials.json
 before_install:
 - pwd
 - ls
