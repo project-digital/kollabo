@@ -4,23 +4,11 @@ node_js:
 - stable
 cache:
   directories:
-  - "$HOME/gcloud/"
   - "$HOME/google-cloud-sdk/"
 env:
 - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
-- PATH=$PATH:${HOME}/google-cloud-sdk/bi
 before_install:
 - pwd
-- ls
-- cd ../
-- ls
-- cd ../
-- ls
-- cd ../
-- ls
-- cd ../
-- ls
-- cd ../
 - ls
 # If the SDK is not already cached, download it and unpack it
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
