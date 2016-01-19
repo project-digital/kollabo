@@ -23,7 +23,7 @@ before_install:
 install: true
 script:
 - echo "No script to run"
-- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
+- gcloud auth activate-service-account --key-file client-secret.json
 deploy:
   provider: gae
   keyfile: client-secret.json
