@@ -2,11 +2,8 @@ sudo: false
 language: node_js
 node_js:
 - stable
-cache:
-  directories:
-  - "$HOME/google-cloud-sdk/"
 env:
-- PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
+- PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 before_install:
 - pwd
 - ls
