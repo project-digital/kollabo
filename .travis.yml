@@ -5,6 +5,7 @@ node_js:
 before_install:
 - openssl aes-256-cbc -K $encrypted_499dfc5dccdc_key -iv $encrypted_499dfc5dccdc_iv
   -in client-secret.json.enc -out client-secret.json -d
+- gcloud auth activate-service-account --key-file client-secret.json
 install: true
 script:
 - echo "No script to run"
