@@ -7,21 +7,18 @@ cache:
   - "$HOME/gcloud/"
 env:
 - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
-- PYTHONPATH=${HOME}/gcloud/google-cloud-sdk/platform/google_appengine
+#- PYTHONPATH=${HOME}/gcloud/google-cloud-sdk/platform/google_appengine
 before_install:
 - openssl aes-256-cbc -K $encrypted_167106de8c80_key -iv $encrypted_167106de8c80_iv
   -in client-secret.json.enc -out client-secret.json -d
 - pwd
 - ls
-- if [ ! -d $HOME/gcloud/google-cloud-sdk ]; then mkdir -p $HOME/gcloud && wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
-  --directory-prefix=$HOME/gcloud && cd $HOME/gcloud && tar xzf google-cloud-sdk.tar.gz
-  && printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh && cd $TRAVIS_BUILD_DIR;
-  fi
-- gcloud components update
-- pwd
-- ls
-- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com
-  --key-file client-secret.json
+#- if [ ! -d $HOME/gcloud/google-cloud-sdk ]; then mkdir -p $HOME/gcloud && wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
+#  --directory-prefix=$HOME/gcloud && cd $HOME/gcloud && tar xzf google-cloud-sdk.tar.gz
+#  && printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh && cd $TRAVIS_BUILD_DIR;
+#  fi
+#- gcloud components update
+#- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
 install: true
 script:
 - echo "No script to run"
