@@ -31,7 +31,7 @@ deploy:
   skip_cleanup: true
   keyfile: client-secret.json
   project: kollabo-1194
-  verbosity: debug
+  #verbosity: debug
   default: true
 notifications:
   slack:
