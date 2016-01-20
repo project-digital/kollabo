@@ -115,6 +115,7 @@ controller.hears(['what is my name','who am i'],'direct_message,direct_mention,m
                             });
                         })
                     })
+                    yesConvo.next();
                     
                 });
             });
