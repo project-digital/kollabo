@@ -5,6 +5,10 @@
   "dependencies": {
     "botkit": "^0.0.5"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/project-digital/kollabo.git"
+  },
  "engines" : { 
     "node" : "*"
   },
