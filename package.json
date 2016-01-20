@@ -9,5 +9,9 @@
     "node" : "*"
   },
   "author": "nathanpguenther@gmail.com",
+  "contributors": [{
+    "name": "Joseph Landry",
+    "email": "joelandry80@gmail.com"
+  }],
   "license": "GPL3"
 }
