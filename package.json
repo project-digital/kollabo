@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Does this works",
   "dependencies": {
-    "botkit": "^0.0.5",
+    "botkit": "^0.0.5"
   },
  "engines" : { 
     "node" : "*"
