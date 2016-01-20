@@ -42,8 +42,8 @@ if (!process.env.token) {
     process.exit(1);
 }
 
-var Botkit = require('botkit');
-//var Botkit = require('./lib/Botkit.js');
+//var Botkit = require('botkit');
+var Botkit = require('./lib/Botkit.js');
 var os = require('os');
 
 var controller = Botkit.slackbot({
@@ -92,14 +92,36 @@ controller.hears(['call me (.*)'],'direct_message,direct_mention,mention',functi
         });
     });
 });
-
+//
 controller.hears(['what is my name','who am i'],'direct_message,direct_mention,mention',function(bot, message) {
 
     controller.storage.users.get(message.user,function(err, user) {
         if (user && user.name) {
             bot.reply(message,'Your name is ' + user.name);
         } else {
-            bot.reply(message,'I don\'t know yet!');
+            bot.reply(message,'i\'m sorry, but your name could not be found in our system. \n Would you like to add one today?' );
+            controller.hears([bot.utterances.yes],'direct_message, direct_mention,mention',function(bot,message){
+                bot.startConversation(message,function(err,yesConvo){
+                    yesConvo.ask('OK, what should i call you?', function(response,yesConvo){
+                        controller.hears(['call me (.*)'],'direct_message,direct_mention,mention',function(bot, message){
+                            var match = message.text.match(/call me (.*)/i);
+                            var name = match[1];
+                            user = {
+                                id: message.user,
+                            };
+                            user.name = name;
+                            controller.storage.users.save(user,function(err, id){
+                                 bot.reply(message,'Got it. I will call you ' + user.name + ' from now on.');
+                            });
+                        })
+                    })
+                    
+                });
+            });
+            controller.hears([bot.utterances.no],'direct_message, direct_mention,mention',function(bot,message){ 
+                bot.reply(message, 'No problem, if you change your mind just type \'call me (insert name)\'');
+            });
+            
         }
     });
 });

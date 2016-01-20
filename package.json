@@ -3,19 +3,21 @@
   "version": "0.0.1",
   "description": "Does this works",
   "dependencies": {
-    "botkit": "^0.0.5"
+    "botkit": "0.0.5"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/project-digital/kollabo.git"
   },
- "engines" : { 
-    "node" : "*"
+  "engines": {
+    "node": "*"
   },
   "author": "nathanpguenther@gmail.com",
-  "contributors": [{
-    "name": "Joseph Landry",
-    "email": "joelandry80@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Joseph Landry",
+      "email": "joelandry80@gmail.com"
+    }
+  ],
   "license": "GPL3"
 }
