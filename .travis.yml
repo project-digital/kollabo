@@ -30,6 +30,7 @@ script:
 - token=$slackbot_token node bot.js
 deploy:
   provider: gae
+  skip_cleanup: true
   keyfile: client-secret.json
   project: kollabo-1194
   verbosity: debug
