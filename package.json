@@ -12,10 +12,11 @@
  "engines" : { 
     "node" : "*"
   },
-  "author": "nathanpguenther@gmail.com",
-  "contributors": [{
-    "name": "Joseph Landry",
-    "email": "joelandry80@gmail.com"
-  }],
-  "license": "GPL3"
+  "contributors": [
+    {"name": "Joseph Landry", "email": "joelandry80@gmail.com"},
+    {"name": "Dakora Murphy", "email": "dakotamurphyucf@gmail.com"},
+    {"name": "Jordan Zinger", "email": "jzinger18gmail.com"},
+    {"name": "Nathan Guenther", "email": "nathanpguenther@gmail.com"}
+  ],
+  "license": "GPL-3.0"
 }
