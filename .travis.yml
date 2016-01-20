@@ -20,7 +20,6 @@ before_install:
 #- gcloud components update
 #- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
 install: 
-- npm install --save botkit
 - npm install
 script:
 - pwd
