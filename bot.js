@@ -99,7 +99,19 @@ controller.hears(['what is my name','who am i'],'direct_message,direct_mention,m
         if (user && user.name) {
             bot.reply(message,'Your name is ' + user.name);
         } else {
-            bot.reply(message,'I don\'t know yet!');
+            bot.reply(message,'I don\'t see your name in the system yet! \n Would you like to add one today?');
+if controller.hears(['bot.utterances.yes'],['direct_message','direct_mention','mention','ambient'],function(bot,message) {
+    convo.ask('what would you liked to be called?',function(response,convo) {
+            controller.hears(['call me (.*)'],'direct_message,direct_mention,mention',function(bot, message) {
+    var matches = message.text.match(/call me (.*)/i);
+    var name = matches[1];
+    controller.storage.users.get(message.user,function(err, user) {
+        if (!user) {
+            user = {
+                id: message.user,
+            };
+else controller.hears(['bot.utterances.no'],['direct_message','direct_mention','mention','ambient'],function(bot,message) {
+     bot.reply(message,'Not a problem);
         }
     });
 });
