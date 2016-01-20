@@ -42,18 +42,22 @@ if (!process.env.token) {
     process.exit(1);
 }
 
-var Botkit = require('botkit');
-//var Botkit = require('./lib/Botkit.js');
+//var Botkit = require('botkit');
+var Botkit = require('./lib/Botkit.js');
 var os = require('os');
 
 var controller = Botkit.slackbot({
     debug: true,
+    //json_file_store: 'data/filestore.json',
 });
 
 var bot = controller.spawn({
     token: process.env.token
 }).startRTM();
 
+controller.on('rtm_open',function(bot,message){
+    
+}
 
 controller.hears(['hello','hi'],'direct_message,direct_mention,mention',function(bot, message) {
 
@@ -76,6 +80,48 @@ controller.hears(['hello','hi'],'direct_message,direct_mention,mention',function
         }
     });
 });
+
+
+controller.hears(['/why am i here/i','why'],'direct_message,direct_mention,mention',function(bot, message){
+
+    bot.startConversation(message, function(err, convo){
+        convo.say('Well to start, here is a document outlining your tasks and duties here.');
+        convo.say('https://docs.google.com/document/d/1l_YaOwCUN4l8C98dsZ4QtqcbwqENEinkvXiNbQDeJ5E/edit?usp=sharing');
+        convo.ask('Any questions about the document? YES, NO, or DONE to quit.',[
+            {
+                pattern: bot.utterances.yes,
+                callback: function(response, convo){
+                    documentQuestions(bot, response);
+                    convo.repeat();
+                    convo.next();
+                }
+            },
+            {
+                pattern: bot.utterances.no,
+                callback: function(response, convo){
+                    convo.say('Alright, is there anything else I can help you with?');
+                    convo.next();
+                    //convo.stop();
+                }
+            },
+            {
+                pattern: 'done',
+                callback: function(response, convo){
+                    convo.say('Ok, you are done.');
+                    //convo.stop();
+                    convo.next();
+                }
+            }
+            ]);
+    });
+    //bot.reply(message, "You are here for a number of reasons, let me explain in a minute!");
+});
+
+var documentQuestions = function(bot, message){
+    //Answer questions about document, in the future
+    bot.reply(message,'This feature is still being developed.');
+    //convo.repeat();
+}
 
 controller.hears(['call me (.*)'],'direct_message,direct_mention,mention',function(bot, message) {
     var matches = message.text.match(/call me (.*)/i);

@@ -3,15 +3,18 @@
   "version": "0.0.1",
   "description": "Does this works",
   "dependencies": {
-    "botkit": "^0.0.5"
+    "botkit": "0.0.5",
+    "mustache": "~2.2.1"
   },
- "engines" : { 
-    "node" : "*"
+  "engines": {
+    "node": "*"
   },
   "author": "nathanpguenther@gmail.com",
-  "contributors": [{
-    "name": "Joseph Landry",
-    "email": "joelandry80@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Joseph Landry",
+      "email": "joelandry80@gmail.com"
+    }
+  ],
   "license": "GPL3"
 }
