@@ -20,7 +20,7 @@ before_install:
 #- gcloud components update
 #- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
 install: 
-- 
+- npm install
 script:
 - echo "No script to run"
 - token=$slackbot_token node bot.js
