@@ -90,11 +90,7 @@ controller.hears(['/why am i here/i','why'],'direct_message,direct_mention,menti
         convo.ask('Any questions about the document? YES, NO, or DONE to quit.',[
             {
                 pattern: bot.utterances.yes,
-                callback: function(response, convo){
-                    documentQuestions(bot, response);
-                    convo.repeat();
-                    convo.next();
-                }
+                callback: document questions(response, convo)
             },
             {
                 pattern: bot.utterances.no,
@@ -117,10 +113,11 @@ controller.hears(['/why am i here/i','why'],'direct_message,direct_mention,menti
     //bot.reply(message, "You are here for a number of reasons, let me explain in a minute!");
 });
 
-var documentQuestions = function(bot, message){
+var documentQuestions = function(response, convo){
     //Answer questions about document, in the future
-    bot.reply(message,'This feature is still being developed.');
-    //convo.repeat();
+    convo.say('This feature is not yet available.');
+    convo.repeat();
+    convo.next();
 }
 
 controller.hears(['call me (.*)'],'direct_message,direct_mention,mention',function(bot, message) {
@@ -203,4 +200,10 @@ function formatUptime(uptime) {
 
     uptime = uptime + ' ' + unit;
     return uptime;
+}
+
+controller.on('team_join',welcome(bot, message));
+
+var welcome = function(bot,message){
+    //send a direct private message, welcoming them and telling them where to begin.
 }
