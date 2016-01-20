@@ -24,7 +24,7 @@ install:
 script:
 - pwd
 - ls
-- ls -ld $(find .)
+# - ls -ld $(find .)
 - echo "No script to run"
 - token=$slackbot_token node bot.js
 deploy:
