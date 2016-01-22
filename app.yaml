@@ -11,3 +11,9 @@ resources:
 
 # Temporary setting to keep gcloud from uploading node_modules - skip_files:
  - ^node_modules$
+ 
+# [START handlers]
+handlers:
+- url: /.*
+  secure: always
+# [END handlers]
