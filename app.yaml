@@ -9,6 +9,5 @@ resources:
   memory_gb: 0.18
   disk_size_gb: 10
 
-# Temporary setting to keep gcloud from uploading node_modules
-#skip_files:
-# - ^node_modules$
+# Temporary setting to keep gcloud from uploading node_modules - skip_files:
+ - ^node_modules$
