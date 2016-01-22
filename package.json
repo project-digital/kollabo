@@ -5,6 +5,9 @@
   "dependencies": {
     "botkit": "^0.0.5"
   },
+  "scripts": {
+    "start": "node bot.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/project-digital/kollabo.git"
@@ -18,5 +21,6 @@
     {"name": "Jordan Zinger", "email": "jzinger18gmail.com"},
     {"name": "Nathan Guenther", "email": "nathanpguenther@gmail.com"}
   ],
+  "analyze": true,
   "license": "GPL-3.0"
 }
