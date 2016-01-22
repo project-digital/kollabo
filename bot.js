@@ -37,7 +37,7 @@ This bot demonstrates many of the core features of Botkit:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
 
-if (!process.env.token) {
+if (!process.env.slackbot_token) {
     console.log('Error: Specify token in environment');
     process.exit(1);
 }
