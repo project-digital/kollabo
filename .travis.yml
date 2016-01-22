@@ -7,25 +7,20 @@ cache:
   - "$HOME/gcloud/"
 env:
 - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
-#- PYTHONPATH=${HOME}/gcloud/google-cloud-sdk/platform/google_appengine
 before_install:
 - openssl aes-256-cbc -K $encrypted_167106de8c80_key -iv $encrypted_167106de8c80_iv
   -in client-secret.json.enc -out client-secret.json -d
 - pwd
 - ls
-#- if [ ! -d $HOME/gcloud/google-cloud-sdk ]; then mkdir -p $HOME/gcloud && wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.tar.gz
-#  --directory-prefix=$HOME/gcloud && cd $HOME/gcloud && tar xzf google-cloud-sdk.tar.gz
-#  && printf '\ny\n\ny\ny\n' | ./google-cloud-sdk/install.sh && cd $TRAVIS_BUILD_DIR;
-#  fi
-#- gcloud components update
-#- gcloud auth activate-service-account travis-ci@kollabo-1194.iam.gserviceaccount.com --key-file client-secret.json
 install: 
 - npm install
 script:
 - pwd
 - ls
-# - ls -ld $(find .)
 - echo "No script to run"
+notifications:
+  slack:
+    secure: I1G5gwPUlhZ+Z92CQIMI65hlg9c0TdT/mDSM2nbB8OjWqOT1Xoe0D2Tp/8VZGK6zKSWWp286MysRhzT+iCCk2x/xMLLU7fYPCfdYhb/dj/lpn1Rg4wcbKCkXQfpGblU+zvt10P00qm57xAs427Mh6k+WnSdo/32XDfqUVoHOr+Dn2+BJckjuxaEyyibf+ozfCQPVYNNhpqtVa04PnBHHXo3Kaqpip7VRckOkZcm7GKJ2C6fnG7vEjrfD0OMXmq0v87w1NFYkofMnnC7UgO8J8j6B68uIr+x+iiKBzAz5osErpwh7O7NJkB/nmLY/SW77GsqRHqDf/6hCyFzmdNGYtShfD+sy95BiW7GF5vrEDRu5gVnXHfKF/ZCOxnuzHVI+3Hd+yj6omRL8q9AA8zbolAggSynayXiS+KCfhaBwv3o0jGWPieLyh2cJFkuCacMcnlBcqzuir/Xf1if9CHn1YyB2WbY0Nf5dddP6sX1yMrNEHD8o0Mtp+Jb/4VFxygqDwbbj7TEoMAsoje3bekUEPCU8bMkSnVk8EoD87N98pjuYMVUa/YILudI3FXnbBA4cB0kv4juqJvC/JGrzuxoOKamygzpmgWCL8WD75bn6zdkefXgah3EUmgPYiuTt63cv8FGrIZsCuGst7jtuutH/R7eQqvGF7eW1ie3lqY/ych8=
 deploy:
   provider: gae
   skip_cleanup: true
@@ -33,6 +28,3 @@ deploy:
   project: kollabo-1194
   #verbosity: debug
   version: prod
-notifications:
-  slack:
-    secure: I1G5gwPUlhZ+Z92CQIMI65hlg9c0TdT/mDSM2nbB8OjWqOT1Xoe0D2Tp/8VZGK6zKSWWp286MysRhzT+iCCk2x/xMLLU7fYPCfdYhb/dj/lpn1Rg4wcbKCkXQfpGblU+zvt10P00qm57xAs427Mh6k+WnSdo/32XDfqUVoHOr+Dn2+BJckjuxaEyyibf+ozfCQPVYNNhpqtVa04PnBHHXo3Kaqpip7VRckOkZcm7GKJ2C6fnG7vEjrfD0OMXmq0v87w1NFYkofMnnC7UgO8J8j6B68uIr+x+iiKBzAz5osErpwh7O7NJkB/nmLY/SW77GsqRHqDf/6hCyFzmdNGYtShfD+sy95BiW7GF5vrEDRu5gVnXHfKF/ZCOxnuzHVI+3Hd+yj6omRL8q9AA8zbolAggSynayXiS+KCfhaBwv3o0jGWPieLyh2cJFkuCacMcnlBcqzuir/Xf1if9CHn1YyB2WbY0Nf5dddP6sX1yMrNEHD8o0Mtp+Jb/4VFxygqDwbbj7TEoMAsoje3bekUEPCU8bMkSnVk8EoD87N98pjuYMVUa/YILudI3FXnbBA4cB0kv4juqJvC/JGrzuxoOKamygzpmgWCL8WD75bn6zdkefXgah3EUmgPYiuTt63cv8FGrIZsCuGst7jtuutH/R7eQqvGF7eW1ie3lqY/ych8=
