@@ -14,7 +14,7 @@ skip_files:
  - ^node_modules$
 
 # [START handlers]
-handlers:
-- url: /.*
-  secure: always
+#handlers:
+#- url: /.*
+#  secure: always
 # [END handlers]
