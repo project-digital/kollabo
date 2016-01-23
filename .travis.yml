@@ -19,7 +19,7 @@ script:
 - pwd
 - ls
 - echo "No script to run"
-- make test-coveralls
+#- make test-coveralls
 #- node bot.js
 notifications:
   slack:
