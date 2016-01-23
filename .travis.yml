@@ -22,8 +22,10 @@ script:
 #- node bot.js
 notifications:
   slack:
+    on_success: always
+    on_failure: always
     rooms:
-      - secure: N6yl7s+5qfbY/1aJVxAC27ZHfdmEHmZcYA4G4Sl8TWdvNw7NjmIjfNiGaPSBl7KsLikPVuSIBBbsQS6uf9vSIHGDiXXUtHl5stAoTSxNM4JxUP$
+      secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
 deploy:
   provider: gae
   skip_cleanup: true
