@@ -19,6 +19,7 @@ script:
 - pwd
 - ls
 - echo "No script to run"
+#- make test-coveralls
 #- node bot.js
 notifications:
   slack:
@@ -38,5 +39,5 @@ deploy:
   project: kollabo-1194
   verbosity: debug
   version: prod
-#dd:
-#  secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
+dd:
+  secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
