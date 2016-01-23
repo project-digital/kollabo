@@ -25,7 +25,12 @@ notifications:
     on_success: always
     on_failure: always
     rooms:
-      secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
+      secure: "o/9ABOKI5gp5o68uI5XsqQJTaIwQuJxw3AOxlj5ptxvmd6k3Z2zPoYe04ppfmbBTCvld468Kpiovnj4m+1/Or/S/71/jsSx+Ok/Jg57Xuc3urAGQ
+VlSuWREtV1rlc97sjwQUk13/XFgumjDGrZfcnzrZ/VgX/zaoTrwC73g/frEMGjvrXoGNaUK6VuL0eAnvSJY7fHxNzXzkKG+qhvLiETmhTXlQMSFfSwxpDjoY8rp
+FjbZajKAwknL17OO969aVnoS2PpHRarQyqsZXb3Q/IpwF/kxAyfQW/dPhHz4sZULhxpNQzkMRmwzw0w/2shFAixT9BhM+CoXktL9SbR15MTsNM+gBgScFRXiQ+Y
+bOYRRTDoRon7EmdS7PxF5UnJ5gHCLHIpeG4I6sDCIkAa7Dwd6m/9MrZsKYPTRrExdKaEXX22X8a/EhFZcSNYd1CWdHjyfzldU3hG5mYFbYuy+Vxi76sjXlGSezC
+cZUDDFw5qrDrVIuLZb/iLx3MjiUtTGd19fD8uhrhDcf+0ne/AWEOoIKg2faThT+C+F8HusWmSmie4yCQybY//LHaqhsyCMNt3Maz6hc+CmnwyJZvwxxWwFCWFul
+RZ7EhLPto+459NtsuLLIpuj3viiBU/8/ig11ZSKPgQ5qejraz9BtcfadHq7ARpoOSBAOEeHz0nMGv2I="
 deploy:
   provider: gae
   skip_cleanup: true
@@ -33,3 +38,5 @@ deploy:
   project: kollabo-1194
   verbosity: debug
   version: prod
+#dd:
+#  secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
