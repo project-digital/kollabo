@@ -48,3 +48,4 @@ examples/db_team_bot/
 
 client-secret.json
 client_secrets.json
+config.env
