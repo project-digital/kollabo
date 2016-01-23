@@ -36,6 +36,7 @@ This bot demonstrates many of the core features of Botkit:
     -> http://howdy.ai/botkit
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
 
+var env = require('env2')('./config.env';)
 
 if (!process.env.slackbot_token) {
     console.log('Error: Specify token in environment');

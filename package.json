@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "description": "Does this works",
   "dependencies": {
-    "botkit": "^0.0.5"
+    "botkit": "^0.0.5",
+    "env2": "^2.0.4"
   },
   "scripts": {
     "start": "node bot.js"
@@ -12,14 +13,26 @@
     "type": "git",
     "url": "https://github.com/project-digital/kollabo.git"
   },
- "engines" : { 
-    "node" : "*"
+  "engines": {
+    "node": "*"
   },
   "contributors": [
-    {"name": "Joseph Landry", "email": "joelandry80@gmail.com"},
-    {"name": "Dakora Murphy", "email": "dakotamurphyucf@gmail.com"},
-    {"name": "Jordan Zinger", "email": "jzinger18gmail.com"},
-    {"name": "Nathan Guenther", "email": "nathanpguenther@gmail.com"}
+    {
+      "name": "Joseph Landry",
+      "email": "joelandry80@gmail.com"
+    },
+    {
+      "name": "Dakora Murphy",
+      "email": "dakotamurphyucf@gmail.com"
+    },
+    {
+      "name": "Jordan Zinger",
+      "email": "jzinger18gmail.com"
+    },
+    {
+      "name": "Nathan Guenther",
+      "email": "nathanpguenther@gmail.com"
+    }
   ],
   "analyze": true,
   "license": "GPL-3.0"

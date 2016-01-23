@@ -5,6 +5,7 @@ node_js:
 cache:
   directories:
   - "$HOME/gcloud/"
+  - node_modules
 env:
 - PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
 before_install:
@@ -18,9 +19,10 @@ script:
 - pwd
 - ls
 - echo "No script to run"
+#- node bot.js
 notifications:
   slack:
-    secure: Wv4fHWHNEUu4XmOi8mNabNKwgMoN82u3SOBEajvdRl+FXOYVcKgz4KhFjd5YH+wNyvCrv45L3p9A4TGl5EH3nYywYMtlPaNcG9ONsU6zs7w6Z2175SZIPcVm6KlGI2XXdQguIMnaQe6Ua5hK8I/jk9/zEImBvFR/f+MOUpeu26xC/RNKiYW3+Ul4YYSxWqruUtpxFQ5IoF0w0JGqbkQ9f79/4wkfXrRmc$
+    secure: N6yl7s+5qfbY/1aJVxAC27ZHfdmEHmZcYA4G4Sl8TWdvNw7NjmIjfNiGaPSBl7KsLikPVuSIBBbsQS6uf9vSIHGDiXXUtHl5stAoTSxNM4JxUP$
 deploy:
   provider: gae
   skip_cleanup: true
