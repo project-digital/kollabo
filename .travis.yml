@@ -18,7 +18,7 @@ script:
 - pwd
 - ls
 - echo "No script to run"
-- token=$slackbot_token node bot.js
+- node bot.js
 notifications:
   slack:
     secure: Wv4fHWHNEUu4XmOi8mNabNKwgMoN82u3SOBEajvdRl+FXOYVcKgz4KhFjd5YH+wNyvCrv45L3p9A4TGl5EH3nYywYMtlPaNcG9ONsU6zs7w6Z2175SZIPcVm6KlGI2XXdQguIMnaQe6Ua5hK8I/jk9/zEImBvFR/f+MOUpeu26xC/RNKiYW3+Ul4YYSxWqruUtpxFQ5IoF0w0JGqbkQ9f79/4wkfXrRmc$
