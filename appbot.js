@@ -29,6 +29,11 @@ var controller = Botkit.slackbot({
 );
 
 controller.setupWebserver(process.env.port,function(err,webserver) {
+  
+  webserver.get('/',function(req,res) {
+     res.sendFile('index.html', {root: __dirname});
+   });
+  
   controller.createWebhookEndpoints(controller.webserver);
 
   controller.createOauthEndpoints(controller.webserver,function(err,req,res) {
