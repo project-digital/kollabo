@@ -7,7 +7,7 @@
     "env2": "^2.0.4"
   },
   "scripts": {
-    "start": "node bot.js"
+    "start": "node appbot.js"
   },
   "repository": {
     "type": "git",
