@@ -23,6 +23,18 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
+// Botkit-based Redis store
+ var Mongo_Store = require('botkit-storage-mongo');
+ var mongo_url = process.env.mongoURL || "mongodb://localhost:27017"
+ var mongo_store = new Mongo_Store({mongoUri: mongo_url});
+ 
+ 
+// Botkit-based Redis store
+var Redis_Store = require('./redis_storage.js');
+var redis_url = process.env.REDIS_URL ||"redis://127.0.0.1:6379"
+var redis_store = new Redis_Store({url: redis_url});
+
+
 require('./env.js');
 
 if (!process.env.clientId || !process.env.clientSecret || !process.env.port) {
