@@ -1,19 +1,32 @@
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+           ______     ______     ______   __  __     __     ______
+          /\  == \   /\  __ \   /\__  _\ /\ \/ /    /\ \   /\__  _\
+          \ \  __<   \ \ \/\ \  \/_/\ \/ \ \  _"-.  \ \ \  \/_/\ \/
+           \ \_____\  \ \_____\    \ \_\  \ \_\ \_\  \ \_\    \ \_\
+            \/_____/   \/_____/     \/_/   \/_/\/_/   \/_/     \/_/
+This is a sample Slack Button application that adds a bot to one or many slack teams.
+# RUN THE APP:
+  Create a Slack app. Make sure to configure the bot user!
+    -> https://api.slack.com/applications/new
+  Run your bot from the command line:
+    clientId=<my client id> clientSecret=<my client secret> port=3000 node slackbutton_bot.js
+# USE THE APP
+  Add the app to your Slack by visiting the login page:
+    -> http://localhost:3000/login
+  After you've added the app, try talking to your bot!
+# EXTEND THE APP:
+  Botkit is has many features for building cool and useful bots!
+  Read all about it here:
+    -> http://howdy.ai/botkit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
-// Programmatically use appropriate process environment variables
-try {
-  require('./.env');
-} catch (e) {
-  if (e.code === 'MODULE_NOT_FOUND') {
-    console.log('Not using environment variables from .env');
-  }
-}
+require('./env.js');
 
-var port = process.env.PORT || process.env.port;
-
-if (!process.env.clientId || !process.env.clientSecret || !port) {
-  console.log('Error: Specify clientId, clientSecret, and port in environment');
+if (!process.env.clientId || !process.env.clientSecret || !process.env.port) {
+  console.log('Error: Specify clientId clientSecret and port in environment');
   process.exit(1);
 }
 
@@ -29,11 +42,10 @@ var controller = Botkit.slackbot({
 );
 
 controller.setupWebserver(process.env.port,function(err,webserver) {
-
+  
   webserver.get('/',function(req,res) {
     res.sendFile('index.html', {root: __dirname});
   });
-  
   controller.createWebhookEndpoints(controller.webserver);
 
   controller.createOauthEndpoints(controller.webserver,function(err,req,res) {
@@ -98,6 +110,7 @@ controller.hears('^stop','direct_message',function(bot,message) {
   bot.rtm.close();
 });
 
+  
 /*
 controller.on(['direct_message','mention','direct_mention'],function(bot,message) {
   bot.api.reactions.add({
