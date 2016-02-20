@@ -9,7 +9,7 @@ install:
 script:
 - pwd
 - ls
-- echo "No script to run"
+- make test-coveralls
 deploy:
   provider: heroku
   api_key:

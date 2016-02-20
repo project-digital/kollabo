@@ -37,5 +37,8 @@
     }
   ],
   "analyze": true,
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "coveralls": "^2.11.6"
+  }
 }
