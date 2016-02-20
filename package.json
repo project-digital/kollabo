@@ -5,7 +5,8 @@
   "dependencies": {
     "botkit": "0.0.7",
     "botkit-storage-mongo": "^1.0.2",
-    "mongodb": "^1.4.40"
+    "mongodb": "^2.1.7",
+    "monkii": "^1.1.5"
   },
   "scripts": {
     "start": "node appbot.js"
