@@ -23,13 +23,19 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
-// Botkit-based Redis store
+// Botkit-based Mongo store
  var Mongo_Store = require('botkit-storage-mongo');
- var mongo_url = process.env.MONGOLAB_URI || process.env.mongoURL || "mongodb://localhost:27017";
+ 
+ // Decdie which db to access. 
+ // First try corresponding Heroku Pipeline stage (deve or prod)
+ // Second if testing locally, connect to mongo localhost
+ var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017";
  var mongo_store = new Mongo_Store({mongoUri: mongo_url});
 
 
 // Programmatically use appropriate process environment variables
+// Must have a  "env.js" locally that is untracked by git (aka in .gitignore)
+// Secure tokens, do not commit, do not publicize, keep local.
 try {
   require('./env.js');
 } catch (e) {
@@ -38,6 +44,7 @@ try {
   }
 }
 
+// Use port requested by server or for local testing as specificed in env.js
 var port = process.env.PORT || process.env.port;
 
 
@@ -57,6 +64,7 @@ var controller = Botkit.slackbot({
   }
 );
 
+// Start web server, and display Slack App Page
 controller.setupWebserver(port,function(err,webserver) {
   
   webserver.get('/',function(req,res) {
@@ -126,7 +134,8 @@ controller.hears('^stop','direct_message',function(bot,message) {
   bot.rtm.close();
 });
 
-  
+
+// Default included code causes bot to crash.
 /*
 controller.on(['direct_message','mention','direct_mention'],function(bot,message) {
   bot.api.reactions.add({
