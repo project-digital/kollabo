@@ -4,40 +4,19 @@ node_js:
 - stable
 cache:
   directories:
-  - "$HOME/gcloud/"
   - node_modules
-env:
-- PATH=$PATH:$HOME/gcloud/google-cloud-sdk/bin
-before_install:
-- openssl aes-256-cbc -K $encrypted_167106de8c80_key -iv $encrypted_167106de8c80_iv
-  -in client-secret.json.enc -out client-secret.json -d
-- pwd
-- ls
-install: 
+
+install:
 - npm install
 script:
 - pwd
 - ls
 - echo "No script to run"
-#- make test-coveralls
-#- node bot.js
-notifications:
-  slack:
-    on_success: always
-    on_failure: always
-    rooms:
-      secure: "o/9ABOKI5gp5o68uI5XsqQJTaIwQuJxw3AOxlj5ptxvmd6k3Z2zPoYe04ppfmbBTCvld468Kpiovnj4m+1/Or/S/71/jsSx+Ok/Jg57Xuc3urAGQ
-VlSuWREtV1rlc97sjwQUk13/XFgumjDGrZfcnzrZ/VgX/zaoTrwC73g/frEMGjvrXoGNaUK6VuL0eAnvSJY7fHxNzXzkKG+qhvLiETmhTXlQMSFfSwxpDjoY8rp
-FjbZajKAwknL17OO969aVnoS2PpHRarQyqsZXb3Q/IpwF/kxAyfQW/dPhHz4sZULhxpNQzkMRmwzw0w/2shFAixT9BhM+CoXktL9SbR15MTsNM+gBgScFRXiQ+Y
-bOYRRTDoRon7EmdS7PxF5UnJ5gHCLHIpeG4I6sDCIkAa7Dwd6m/9MrZsKYPTRrExdKaEXX22X8a/EhFZcSNYd1CWdHjyfzldU3hG5mYFbYuy+Vxi76sjXlGSezC
-cZUDDFw5qrDrVIuLZb/iLx3MjiUtTGd19fD8uhrhDcf+0ne/AWEOoIKg2faThT+C+F8HusWmSmie4yCQybY//LHaqhsyCMNt3Maz6hc+CmnwyJZvwxxWwFCWFul
-RZ7EhLPto+459NtsuLLIpuj3viiBU/8/ig11ZSKPgQ5qejraz9BtcfadHq7ARpoOSBAOEeHz0nMGv2I="
+
 deploy:
-  provider: gae
-  skip_cleanup: true
-  keyfile: client-secret.json
-  project: kollabo-1194
-  verbosity: debug
-  version: prod
-dd:
-  secure: ILXh5WrCMaN1L+mhmguVY+bxLCgBar5P8/afGvx26bG6ihHMia+LtAknZoIOEqWH22sE4XGdYknzYu+Cs5pFvo2T1O5suDAHjYahc74iiEQG2XiO$
+  provider: heroku
+  api_key:
+    secure: c3sF4GJf9ZV5hVLRPpk3s4ifVqt6L6odu0jJTvZYobxAYQjcrDKvFYZz5EQhepC6VA6OXa80VNa32m3ATMzY7ZsaP5lLM+GvmXNM8OSS2SmmG25UXZ6bsbfWUt4PFOukVKejKjhlbcZp1ZY9jks8wtQcUrPcpqVV5lJnscCpeb/oMnHQS6pYUSbXzvt3P7jbvLU7UcgNWYol0HKVYT+N42jy19Bh8vgBCsy33yILTiIpob4wvIdYjYzgoAHl9K5lOAfkOVCp5N52AZqpzgupX795AdZde+n69Pk1ODskk8CSXVuYXS9DADyWKV6fGAFIVlo9tGZcmLlKoSlfwsyk3solNYK8Rreqbs3BNid/1C/suWG6IPYt3hK1Ufe04gklkgw3XQ74/BwLzSRqBA+DQIF2L/nT31qSWa2lBZy/Pjl/vNsF5ddcco6vT5giw8BGwMuXbE7+qMpF7Wr/8y5k5B0NbUVqwp+B6uZ/x/4YdaffDweDkpod031wnYE74fa0zFw+rEOI3MGMO+3fnkHpjtLPT1uqP4mX29JHFNvLqMncClElUt/GVqNjBjqmfIGdLvSreBb2zKw0aNOY90YYJgXIR+iWIsMkd5UOrrQg0iH4HgT/KOSGM8dwF99in/6wnAJakyGBkd+ozg2sfKyyJyBWSx+g4doxX1SR7A9ffEM=
+  app: 
+    Heroku: agile-coast-78676
+   on: Heroku
