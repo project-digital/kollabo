@@ -9,7 +9,7 @@ install:
 script:
 - pwd
 - ls
-- make test-coveralls
+- make test
 deploy:
   provider: heroku
   api_key:
