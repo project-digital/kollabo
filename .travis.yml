@@ -14,5 +14,6 @@ deploy:
   provider: heroku
   api_key:
     secure: c3sF4GJf9ZV5hVLRPpk3s4ifVqt6L6odu0jJTvZYobxAYQjcrDKvFYZz5EQhepC6VA6OXa80VNa32m3ATMzY7ZsaP5lLM+GvmXNM8OSS2SmmG25UXZ6bsbfWUt4PFOukVKejKjhlbcZp1ZY9jks8wtQcUrPcpqVV5lJnscCpeb/oMnHQS6pYUSbXzvt3P7jbvLU7UcgNWYol0HKVYT+N42jy19Bh8vgBCsy33yILTiIpob4wvIdYjYzgoAHl9K5lOAfkOVCp5N52AZqpzgupX795AdZde+n69Pk1ODskk8CSXVuYXS9DADyWKV6fGAFIVlo9tGZcmLlKoSlfwsyk3solNYK8Rreqbs3BNid/1C/suWG6IPYt3hK1Ufe04gklkgw3XQ74/BwLzSRqBA+DQIF2L/nT31qSWa2lBZy/Pjl/vNsF5ddcco6vT5giw8BGwMuXbE7+qMpF7Wr/8y5k5B0NbUVqwp+B6uZ/x/4YdaffDweDkpod031wnYE74fa0zFw+rEOI3MGMO+3fnkHpjtLPT1uqP4mX29JHFNvLqMncClElUt/GVqNjBjqmfIGdLvSreBb2zKw0aNOY90YYJgXIR+iWIsMkd5UOrrQg0iH4HgT/KOSGM8dwF99in/6wnAJakyGBkd+ozg2sfKyyJyBWSx+g4doxX1SR7A9ffEM=
-  app: agile-coast-78676
-  on: Heroku
+  app: 
+    master: agile-coast-78676-prod
+    development: agile-coast-78676-dev
