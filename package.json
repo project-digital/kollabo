@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "description": "Does this works",
   "dependencies": {
-    "botkit": "0.0.7",
+    "botkit": "^0.0.5",
     "botkit-storage-mongo": "^1.0.2",
-    "mongodb": "^2.1.7"
+    "mongodb": "^1.4.40"
   },
   "scripts": {
     "start": "node appbot.js"
