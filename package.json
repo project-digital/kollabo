@@ -39,6 +39,7 @@
   "analyze": true,
   "license": "GPL-3.0",
   "devDependencies": {
-    "coveralls": "^2.11.6"
+    "coveralls": "^2.11.6",
+    "mocha-lcov-reporter": "^1.1.0"
   }
 }
