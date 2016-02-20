@@ -23,14 +23,13 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
 
-// Botkit-based Mongo store
- var Mongo_Store = require('botkit-storage-mongo');
- 
  // Decdie which db to access. 
  // First try corresponding Heroku Pipeline stage (deve or prod)
  // Second if testing locally, connect to mongo localhost
- var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017";
- var mongo_store = new Mongo_Store({mongoUri: mongo_url});
+var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017"
+
+// Botkit-based Mongo store
+var botkit_storage_mongo = require("./lib/botkit-storage-mongo")({mongoUri: mongo_url});
 
 
 // Programmatically use appropriate process environment variables
@@ -54,9 +53,11 @@ if (!process.env.clientId || !process.env.clientSecret || !port) {
 }
 
 
+// Start Bot
 var controller = Botkit.slackbot({
   //json_file_store: './db_slackbutton_bot/',
-  storage: mongo_store
+  debug: false,
+  storage: botkit_storage_mongo
 }).configureSlackApp(
   {
     clientId: process.env.clientId,
