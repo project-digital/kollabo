@@ -40,6 +40,7 @@
   "license": "GPL-3.0",
   "devDependencies": {
     "coveralls": "^2.11.6",
+    "istanbul": "^0.4.2",
     "mocha-lcov-reporter": "^1.1.0"
   }
 }
