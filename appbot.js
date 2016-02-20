@@ -29,7 +29,7 @@ var Botkit = require('botkit');
 var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017"
 
 // Botkit-based Mongo store
-var botkit_storage_mongo = require("../../lib/botkit-storage-mongo")({mongoUri: mongo_url});
+var botkit_storage_mongo = require("./lib/botkit-storage-mongo")({mongoUri: mongo_url});
 
 
 // Programmatically use appropriate process environment variables
