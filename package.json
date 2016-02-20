@@ -9,7 +9,8 @@
     "monkii": "^1.1.5"
   },
   "scripts": {
-    "start": "node appbot.js"
+    "start": "node appbot.js",
+    "test": "make test"
   },
   "repository": {
     "type": "git",
