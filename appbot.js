@@ -56,7 +56,7 @@ if (!process.env.clientId || !process.env.clientSecret || !port) {
 // Start Bot
 var controller = Botkit.slackbot({
   //json_file_store: './db_slackbutton_bot/',
-  debug: false,
+  debug: true,
   storage: botkit_storage_mongo
 }).configureSlackApp(
   {
