@@ -45,7 +45,8 @@ examples/db_team_bot/
 */.DS_Store
 .env
 *.env
-
+env*
+env.js
 
 client-secret.json
 client_secrets.json
