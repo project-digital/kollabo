@@ -22,15 +22,21 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
+var app = require('express')();
+var bodyParser = require('body-parser');
+var upload = require('multer')();
+var request = require('request');
 
  // Decdie which db to access. 
  // First try corresponding Heroku Pipeline stage (deve or prod)
  // Second if testing locally, connect to mongo localhost
-var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017"
+var mongo_url = process.env.MONGOLAB_URI || "mongodb://kollabotest:thisisonlyatest@ds049888.mlab.com:49888/heroku_796371wz"/*"mongodb://localhost:27017"*/
 
 // Botkit-based Mongo store
 var botkit_storage_mongo = require("./lib/botkit-storage-mongo")({mongoUri: mongo_url});
 
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Programmatically use appropriate process environment variables
 // Must have a  "env.js" locally that is untracked by git (aka in .gitignore)
@@ -171,3 +177,84 @@ controller.storage.teams.all(function(err,teams) {
   }
 
 });
+
+app.listen(3050);
+
+//Webhook logic
+app.post('/', upload.array(), function (req, res, next) {
+  	//console.log(req.body);
+  	res.send(req.body.TeamID);
+  	var webhookUrl;
+  	var teamData;
+  	controller.storage.teams.get(req.body.TeamID, function(err, team_data){
+  		//console.log(team_data.incoming_webhook.url);
+  		webhookUrl = team_data.incoming_webhook.url;
+  		teamData = team_data;
+  		if(webhookUrl != null && webhookUrl != undefined){
+  			sendWebhook(webhookUrl, req, teamData);
+  		}
+  	});
+  	/*teams.findOne({ID:req.body.TeamID}).on('success', function(doc){
+		webhookUrl = doc.incoming_webhook.url;
+  	});*/
+  	
+  	return;
+});
+
+//This is the code to send (post) the webhook to the slack api.
+var sendWebhook = function(url, req, data){
+	console.log(url);
+	var options;
+	var name = controller.storage.users.get(data.incoming_webhook.createdBy,function(err, user_data){
+		console.log(user_data);
+		options = {
+  			uri: url,
+  			method: 'POST',
+  			json: {
+    			"Inception": req.body.Inception,
+	    		"Industry" : req.body.Industry,
+    			"CompanyName" : req.body.CompanyName,
+    			"TeamID" : req.body.TeamID,
+    			"_ID" : req.body._ID,
+    			"attachments" : [
+    				{
+    					"fallback" : "Thank you!",
+    					"color" : "#11ff99", 
+    					"text" : "Hey " + 
+    					user_data.user +
+    					", thank you for filling out the form. I will use this info when new users join." +
+    					"\nHave a wonderful day, and we will be talking soon!",
+    					"author_name" : "Kollabo"
+    				}
+    			]
+    	  	}
+ 		};
+ 		console.log("url: " + url);
+		request(options, function(error, response, body){
+			if(!error && response.statusCode == 200){
+				console.log(body);
+			}
+			else if(error){
+				console.log(error);
+			}
+		});
+ 	});
+	
+	/*request.post(url, {
+	
+		"Inception" : req.body.Inception,
+		"Industry" : req.body.Industry,
+		"CompanyName" : req.body.CompanyName,
+		"TeamID" : req.body.TeamID,
+		"_ID" : req.body._ID,
+		"text" : req.body.text
+		
+	}, function(error, response, body){
+		if(!error && response.statusCode == 200){
+			console.log(body);
+		}
+		else if(error){
+			console.log(error);
+		}
+	});*/
+}
