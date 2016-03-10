@@ -22,7 +22,7 @@ This is a sample Slack Button application that adds a bot to one or many slack t
 
 /* Uses the slack button feature to offer a real time bot to multiple teams */
 var Botkit = require('botkit');
-var app = require('express')();
+////var app = require('express')();
 var bodyParser = require('body-parser');
 var upload = require('multer')();
 var request = require('request');
@@ -35,8 +35,8 @@ var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017"
 // Botkit-based Mongo store
 var botkit_storage_mongo = require("./lib/botkit-storage-mongo")({mongoUri: mongo_url});
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+////app.use(bodyParser.json()); // for parsing application/json
+////app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 // Programmatically use appropriate process environment variables
 // Must have a  "env.js" locally that is untracked by git (aka in .gitignore)
@@ -179,6 +179,8 @@ controller.storage.teams.all(function(err,teams) {
 
 });
 
+/*
+////Commenting out second server for now.
 app.listen(port);
 
 //Webhook logic
@@ -202,6 +204,9 @@ app.post('/', upload.array(), function (req, res, next) {
   	return;
 });
 
+*/
+
+/*
 //This is the code to send (post) the webhook to the slack api.
 var sendWebhook = function(url, req, data){
 	console.log(url);
@@ -241,6 +246,7 @@ var sendWebhook = function(url, req, data){
 		});
  	});
 	
+	
 	/*request.post(url, {
 	
 		"Inception" : req.body.Inception,
@@ -258,4 +264,6 @@ var sendWebhook = function(url, req, data){
 			console.log(error);
 		}
 	});*/
+	
+	
 }
