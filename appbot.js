@@ -114,7 +114,7 @@ controller.on('create_bot',function(bot,config) {
         } else {
           convo.say('I am a bot that has just joined your team');
           convo.say('You must now /invite me to a channel so that I can be of use!');
-          convo.say('Thank you for installing Kollabo, To get started help me learn a little about yoru Slack team, and what you stand for! This Quick form gives me the basics to start learning : )'
+          convo.say('Thank you for installing Kollabo, To get started help me learn a little about yoru Slack team, and what you stand for! This Quick form gives me the basics to start learning : )');
         }
       });
 
