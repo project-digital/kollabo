@@ -30,7 +30,7 @@ var request = require('request');
  // Decdie which db to access. 
  // First try corresponding Heroku Pipeline stage (deve or prod)
  // Second if testing locally, connect to mongo localhost
-var mongo_url = process.env.MONGOLAB_URI || "mongodb://kollabotest:thisisonlyatest@ds049888.mlab.com:49888/heroku_796371wz"/*"mongodb://localhost:27017"*/
+var mongo_url = process.env.MONGOLAB_URI || "mongodb://localhost:27017"
 
 // Botkit-based Mongo store
 var botkit_storage_mongo = require("./lib/botkit-storage-mongo")({mongoUri: mongo_url});
