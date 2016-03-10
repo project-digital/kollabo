@@ -199,7 +199,7 @@ app.post('/', upload.array(), function (req, res, next) {
   	});
   	/*teams.findOne({ID:req.body.TeamID}).on('success', function(doc){
 		webhookUrl = doc.incoming_webhook.url;
-  	});*/
+  	});
   	
   	return;
 });
@@ -263,7 +263,8 @@ var sendWebhook = function(url, req, data){
 		else if(error){
 			console.log(error);
 		}
-	});*/
+	});
 	
 	
 }
+*/
