@@ -178,7 +178,7 @@ controller.storage.teams.all(function(err,teams) {
 
 });
 
-app.listen(3050);
+app.listen(port);
 
 //Webhook logic
 app.post('/', upload.array(), function (req, res, next) {
